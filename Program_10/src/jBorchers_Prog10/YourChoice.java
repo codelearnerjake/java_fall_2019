@@ -1,9 +1,7 @@
 /* Jacob Borchers
  * Program 10, Due: 11/05/19
  * Partner names: None
- * Description: This program asks for an integer, loops an equal number of times to the inputed integer 
- * asking for string inputs on each loop from a list of valid inputs, and displaying how many of each 
- * valid entry was entered
+ * Description: This program asks the user to choose between three thrings to print or ends the program
  */
 
 package jBorchers_Prog10;
