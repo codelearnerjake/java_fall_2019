@@ -24,4 +24,37 @@ public class YourChoice
 		userInput.close();
 		
 	}
+	
+	/**
+	 * Prints a song
+	 */
+	public static void printSong() 
+	{
+		;
+	}
+	
+	/**
+	 * Prints a nursery rhyme
+	 */
+	public static void printRhyme()
+	{
+		;
+	}
+	
+	/**
+	 * Prints a haiku
+	 */
+	public static void printHaiku()
+	{
+		;
+	}
+	
+	/**
+	 * Ends the program
+	 */
+	public static void endProgram()
+	{
+		;
+	}
+	
 }
