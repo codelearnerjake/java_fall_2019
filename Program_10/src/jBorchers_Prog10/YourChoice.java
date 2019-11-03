@@ -1,7 +1,7 @@
 /* Jacob Borchers
  * Program 10, Due: 11/05/19
  * Partner names: None
- * Description: This program asks the user to choose between three thrings to print or ends the program
+ * Description: This program asks the user to choose between three menu options to print or ends the program
  */
 
 package jBorchers_Prog10;
@@ -12,15 +12,65 @@ public class YourChoice
 	public static void main(String[] args)
 	{
 		Scanner userInput = new Scanner (System.in);
-		System.out.print("Welcome! Make a selection and I will print something for you.\n\n");
-		System.out.print("1) A song\n2) A nursery rhyme\n3) A haiku\n4) End the Program\n\n");
-		System.out.print("Enter your choice:  ");
-		int choice = userInput.nextInt();
+		printWelcome();
 		
-		System.out.printf("You choose %d", choice);
+		int loop = 0;
+		while (loop == 0 )
+		{
+			printMenu();
+			
+			int choice = userInput.nextInt();
+			
+			int check = 0;
+			while (check == 0)
+			{
+				if (choice <= 4 && choice > 0) 
+				{
+					check = 1;
+					break;
+				}
+			
+			System.out.print("That was not a menu choice. Try agian:  ");
+			choice = userInput.nextInt();
+			}
+			
+			switch (choice)
+			{
+			case 1:
+				printSong();
+				break;
+			case 2:
+				printRhyme();
+				break;
+			case 3:
+				printHaiku();
+				break;				
+			case 4: 
+				endProgram();
+				loop = 1;
+				break;
+			}
+			
+		}
 		
 		userInput.close();
 		
+	}
+	/**
+	 * Prints welcome message
+	 */
+	public static void printWelcome()
+	{
+		System.out.print("Welcome! Make a selection and I will print something for you.\n\n");
+	}
+	
+	/**
+	 * Prints menu options
+	 */
+	public static void printMenu()
+	{
+		System.out.print("1) A song\n2) A nursery rhyme\n3) A haiku\n4) End the Program\n\n");
+		System.out.print("Enter your choice:  ");
 	}
 	
 	/**
@@ -28,7 +78,7 @@ public class YourChoice
 	 */
 	public static void printSong() 
 	{
-		;
+		System.out.print("you chose song\n\n");
 	}
 	
 	/**
@@ -36,7 +86,7 @@ public class YourChoice
 	 */
 	public static void printRhyme()
 	{
-		;
+		System.out.print("you chose Rhyme\n\n");
 	}
 	
 	/**
@@ -44,7 +94,7 @@ public class YourChoice
 	 */
 	public static void printHaiku()
 	{
-		;
+		System.out.print("you chose Haiku\n\n");
 	}
 	
 	/**
@@ -52,7 +102,7 @@ public class YourChoice
 	 */
 	public static void endProgram()
 	{
-		;
+		System.out.print("Thank you for your time.");
 	}
 	
 }
