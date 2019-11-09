@@ -9,9 +9,7 @@ package jBorchers_Prog11;
 import java.util.Scanner;
 
 public class SammyRentals4
-{
-	// Do descriptions and method descriptions---------------------------------------------
-	
+{	
 	public static void main (String[] args)
 	{
 		printWelcome();
@@ -30,9 +28,15 @@ public class SammyRentals4
 		
 		boolean discount = isDiscount(item, itemTotal);
 		
-		System.out.printf("\nItem %s for %d hours and %d mintues is $%.2f, dicount: %s \n\n",item, hours, minutes, itemTotal, discount);
-		
+		if (discount)
+		{
+			itemTotal -= 10;
 		}
+		
+		printCost(item, hours, minutes, itemTotal);
+				
+		}
+		
 		while ( repeat());
 		
 		printThankYou();
@@ -49,17 +53,17 @@ public class SammyRentals4
 	{
 		System.out.print("Welcome to Sammy's Seashore Supplies where it's always a Sunny day at the beach!\n\n");
 		System.out.print("Items for rent:\n1) Canoe\n2) Kayak\n3) Surfboard\n4) Beach chair\n5) Umbrella\n" +
-				 		 "6) Other (enter the item rented)\n\n");
+				 		 "6) Other (enter the item rented)\n");
 	}
 	
 	/**
-	 * Asks user for input and returns choice as  string
+	 * Asks user for input and returns choice as a string
 	 * 
 	 * @return: choice User input 
 	 */
 	public static String getItem()
 	{
-		System.out.print("What item did you rent?  ");
+		System.out.print("\nWhat item did you rent?  ");
 		String choice = userInput.nextLine();
 		return choice;
 	}
@@ -87,7 +91,7 @@ public class SammyRentals4
 	}
 	
 	/**
-	 * Asks user for minutes, validates input and returns minutes
+	 * Asks user for minutes, validates input, and returns minutes
 	 * 
 	 * @return: The minutes entered by user
 	 */
@@ -140,7 +144,8 @@ public class SammyRentals4
 	}
 	
 	/**
-	 * Calculate the total cost for renting the item
+	 * The parameters will be the hours, minutes, and rates for each. 
+	 * The method will calculate the cost of the rental and will return that value. 
 	 * 
 	 * @param: hours Hours item was rented
 	 * @param: min Minutes the item was rented
@@ -154,9 +159,13 @@ public class SammyRentals4
 	}
 	
 	/**
-	 * What does
+	 * Checks if the item rented is "umbrella" or the total cost is greater than 100 
+	 * and returns true to indicate if a discount should be
+	 * applied or will return false if a discount should not be applied. 
 	 * 
-	 * @return:
+	 * @param: itemRent The item selected for rent 
+	 * @param: costTotal The total cost for renting the item
+	 * @return: boolean for if discount should be applied 
 	 */
 	public static boolean isDiscount(String itemRent, double costTotal)
 	{
@@ -171,20 +180,22 @@ public class SammyRentals4
 	}
 	
 	/**
-	 * what does 
+	 * The parameters are the item rented, the hours, minutes, and total cost for the rental. 
+	 * The method will print the statement that tells the cost of the rental. 
 	 * 
-	 * @param: item rented 
-	 * @param: hours rented
-	 * @param: minutes rented
-	 * @param: total cost 
-
-	public static void printCost()
+	 * @param: pItem The item rented
+	 * @param: pHours The hours the item was rented for
+	 * @param: pMinutes The minutes the item was rented for 
+	 * @param: pItemTotal Total cost of renting item 
+	 */
+	public static void printCost(String pItem, int pHours, int pMinutes, double pTotal)
 	{
-		;
-	} */
+		System.out.printf("\nThe cost for renting a %s for %d hours and %d mintues is $%.2f. \n\n",pItem, pHours, pMinutes, pTotal);
+
+	} 
 	
 	/**
-	 * Asks the user if they rented another item and returns a boolean
+	 * This method will ask the user if another item was rented and will return the user’s answer
 	 * 
 	 * @return A boolean
 	 */
