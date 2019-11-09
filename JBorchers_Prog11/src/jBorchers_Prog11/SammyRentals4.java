@@ -28,7 +28,9 @@ public class SammyRentals4
 		
 		double itemTotal = calculateCost(hours,minutes,itemCost,2.5);
 		
-		System.out.printf("\nItem %s for %d hours and %d mintues is $%.2f \n\n",item, hours, minutes, itemTotal);
+		boolean discount = isDiscount(item, itemTotal);
+		
+		System.out.printf("\nItem %s for %d hours and %d mintues is $%.2f, dicount: %s \n\n",item, hours, minutes, itemTotal, discount);
 		
 		}
 		while ( repeat());
@@ -97,7 +99,7 @@ public class SammyRentals4
 		{
 			System.out.print("How many minutes?  ");
 			inMinutes = userInput.nextInt();
-			if (inMinutes >=0) {
+			if (inMinutes >=0 && inMinutes < 60) {
 				check = 1;
 				break;
 			}
@@ -155,9 +157,16 @@ public class SammyRentals4
 	 * What does
 	 * 
 	 * @return:
-
-	public static boolean isDiscount()
+	 */
+	public static boolean isDiscount(String itemRent, double costTotal)
 	{
+		boolean discount = false;
+		
+		if (costTotal > 100 || itemRent.toLowerCase().equals("umbrella"))
+		{
+			discount = true;
+		}
+		
 		return discount;
 	}
 	
@@ -199,7 +208,7 @@ public class SammyRentals4
 	 */
 	public static void printThankYou()
 	{
-		System.out.print("Thank you for your business.");
+		System.out.print("\nThank you for your business.");
 	}
 
 }
