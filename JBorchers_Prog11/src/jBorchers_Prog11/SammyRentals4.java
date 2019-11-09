@@ -1,7 +1,8 @@
 /* Jacob Borchers
  * Program 11, Due: 11/12/19
  * Partner names: None
- * Description: 
+ * Description: This program prints out a menu, asks the user for a string input then two integer inputs
+ * then prints out the total. Then it asks for a string and repeats or terminates.
  */
 
 package jBorchers_Prog11;
@@ -15,6 +16,8 @@ public class SammyRentals4
 	{
 		printWelcome();
 		
+		do
+		{
 		String item = getItem();
 		
 		int hours = getHours();
@@ -23,10 +26,16 @@ public class SammyRentals4
 		
 		double itemCost = calculateRate(item);
 		
-		System.out.printf("%s %d %d $%.2f ",item, hours, minutes, itemCost);
+		double itemTotal = calculateCost(hours,minutes,itemCost,2.5);
+		
+		System.out.printf("\nItem %s for %d hours and %d mintues is $%.2f \n\n",item, hours, minutes, itemTotal);
+		
+		}
+		while ( repeat());
+		
+		printThankYou();
 		 
-		 
-		 userInput.close();
+		userInput.close();
 	}
 	
 	static Scanner userInput = new Scanner(System.in);
@@ -129,17 +138,17 @@ public class SammyRentals4
 	}
 	
 	/**
-	 * What does
+	 * Calculate the total cost for renting the item
 	 * 
-	 * @param: hours charge for hours
-	 * @param: min charge for minutes
-	 * @param: item hourly cost of item
-	 * @param: minute time (2.5)
-	 * @return:
-
-	public static double calculateCost()
+	 * @param: hours Hours item was rented
+	 * @param: min Minutes the item was rented
+	 * @param: hRate Hourly rate of the item
+	 * @param: mRate minute rate of the item
+	 * @return: The total cost for renting the item
+	 */
+	public static double calculateCost(int hours, int mins, double hRate, double mRate)
 	{
-		return total;
+		return hRate * hours + mRate * mins;
 	}
 	
 	/**
@@ -163,15 +172,25 @@ public class SammyRentals4
 	public static void printCost()
 	{
 		;
-	}
+	} */
 	
 	/**
-	 * what does
+	 * Asks the user if they rented another item and returns a boolean
 	 * 
-	 * @return
-
+	 * @return A boolean
+	 */
 	public static boolean repeat()
 	{
+		boolean loop = true;
+		System.out.print("Did you rent another item?  ");
+		String yesOrNo = userInput.next().toLowerCase();
+		userInput.nextLine();
+		
+		if (yesOrNo.equals("no"))
+		{
+			loop = false;
+		}
+		
 		return loop;
 	}
 	
