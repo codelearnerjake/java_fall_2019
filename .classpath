@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="JBorchers_Prog11/src"/>
+	<classpathentry kind="src" path="Program_08/src"/>
+	<classpathentry kind="src" path="Program_09/src"/>
+	<classpathentry kind="src" path="Program_10/src"/>
+	<classpathentry kind="output" path="JBorchers_Prog11/bin"/>
+</classpath>
