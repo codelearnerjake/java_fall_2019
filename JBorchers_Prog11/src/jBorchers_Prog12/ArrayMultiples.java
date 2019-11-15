@@ -12,6 +12,9 @@ public class ArrayMultiples
 	public static void main (String[] args) 
 	{
 		printWelcome();
+		
+		getTotal();
+		
 	}
 	
 	Scanner userIn = new Scanner(System.in);
@@ -22,7 +25,7 @@ public class ArrayMultiples
 	public static void printWelcome() 
 	{
 		System.out.print("Enter numbers and a multiple and I will tell you if they "
-				+ "are a multiple of your number and if they are odd or even");
+				+ "are a multiple of your number and if they are odd or even\n\n");
 	}
 	
 	/**
