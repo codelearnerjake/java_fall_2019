@@ -36,7 +36,10 @@ public class ArrayMultiples
 			}
 		}
 		
-		System.out.printf("\nThere were %d multiples of %d",count, multiple);
+		System.out.printf("\nThere were %d multiples of %d\n",count, multiple);
+		
+		int odd = 0;
+		int even = 0;
 		
 		for(int numPrint : testNums)
 		{
@@ -44,14 +47,18 @@ public class ArrayMultiples
 			if (numPrint % 2 == 0)
 			{
 				evenOdd = "Even";
+				even++;
 			}
 			else 
 			{
 				evenOdd = "Odd";
+				odd++;
 			}
 				
 			System.out.printf("\n %3d  %4s ", numPrint, evenOdd);
 		}
+		
+		System.out.printf("\nThere were %d evens and %d odds.", even, odd);
 		
 		
 		
