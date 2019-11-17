@@ -13,7 +13,7 @@ public class ArrayMultiples
 {
 	public static void main (String[] args) 
 	{
-		printWelcome();
+		printWelcome(); 
 
 		int amount = getTotal();	
 		
@@ -99,7 +99,7 @@ public class ArrayMultiples
 	}
 	
 	/**
-	 * Prompts the user for the number 
+	 * Prompts the user for the number to be tested for multiples
 	 * 
 	 * @return the number entered
 	 */
@@ -113,9 +113,10 @@ public class ArrayMultiples
 	}
 	
 	/**
-	 * What does
+	 * Validates that the number passed in as the argument is greater than zero
 	 * 
-	 * @return
+	 * @param: numIn the number to test 
+	 * @return boolean value whether the number is greater
 	 */
 	public static boolean isInvalid(int numIn) 
 	{
