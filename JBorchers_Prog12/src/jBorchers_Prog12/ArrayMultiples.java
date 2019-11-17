@@ -1,7 +1,9 @@
 /* Jacob Borchers
  * Program 11, Due: 11/19/19
  * Partner names: None
- * Description: 
+ * Description: This program prompts the user for the number of numbers they would like to test, 
+ * prompts for that many numbers to be entered, then for the multiple to test against. It then outputs the multiples,
+ * the numbers entered, and whether they are even or odd and the total evens and odds entered. 
  */
 
 package jBorchers_Prog12;
@@ -39,8 +41,7 @@ public class ArrayMultiples
 		System.out.printf("\nThere were %d multiples of %d\n",count, multiple);
 		
 		int odd = 0;
-		int even = 0;
-		
+		int even = 0;	
 		for(int numPrint : testNums)
 		{
 			String evenOdd;
@@ -58,10 +59,9 @@ public class ArrayMultiples
 			System.out.printf("\n %3d  %4s ", numPrint, evenOdd);
 		}
 		
-		System.out.printf("\nThere were %d evens and %d odds.", even, odd);
+		System.out.printf("\nThere were %d evens and %d odds.", even, odd);	
 		
-		
-		
+		userIn.close();
 	}
 	
 	static Scanner userIn = new Scanner(System.in);
@@ -76,9 +76,10 @@ public class ArrayMultiples
 	}
 	
 	/**
-	 * What does
+	 * Prompts the user for amount of numbers to be tested, and uses isInvalid method to validate that the
+	 * number is greater than 0
 	 * 
-	 * @return
+	 * @return the number entered
 	 */
 	public static int getTotal() 
 	{
@@ -98,9 +99,9 @@ public class ArrayMultiples
 	}
 	
 	/**
-	 * What does 
+	 * Prompts the user for the number 
 	 * 
-	 * @return
+	 * @return the number entered
 	 */
 	public static int getMultiple() 
 	{
