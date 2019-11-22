@@ -12,9 +12,25 @@ public class SalesReport
 	//Do description and method javadocs
 	public static void main(String[] args)
 	{
-		printTitle();
+		String[] workWeek = {"Monday","Tuesday","Wednesday","Thursday","Friday"};
+		double[] sales = new double[5];
 		
-		int money = userIn.nextInt();
+		
+		printTitle();
+		getSales(workWeek, sales);
+		
+		for (String x : workWeek) 
+		{
+			System.out.printf("%s   ", x);
+			
+			for (double y : sales)
+			{
+				System.out.printf("$%d\n", y);
+			}
+		
+		}
+		
+
 	}
 	
 	static Scanner userIn = new Scanner(System.in);
@@ -24,40 +40,55 @@ public class SalesReport
 	 */
 	public static void printTitle() 
 	{
-		System.out.print("Company Logistics Co. Sales Report");
+		System.out.print("Company Logistics Co. Sales Report\n\n");
 	}
 	
 	/**
-	 * D
+	 * Check on this as best method? does I need to be there? 
 	 * 
 	 */
-	public static void getSales()
+	public static void getSales(String[] days, double[] sales)
 	{
-		;
+		for (String x: days)
+		{
+			int i = 0; 
+			System.out.printf("Enter sales for %s:  ", x);
+			
+			sales[i] = userIn.nextDouble();
+			i++;
+			
+		}
 	}
 	
 	/**
 	 * 
 	 * @return
-	 */
+	 
 	public static boolean isInvalid()
 	{
 		;
 	}
 	
 	/**
-	 * d
+	 * Check loop method, might be better way
 	 */
-	public static void printSales()
+	public static void printSales(String[] weekDays, double[] sales)
 	{
-		;
+		System.out.print("Sales per day:\n\n");
+		
+		int i = 0;
+		for (String x : weekDays)
+		{
+			System.out.printf("%14s   $%4.2d", x, sales[i]);
+			i++;
+		}
 	}
 	
 	/**
 	 * d
 	 * 
 	 * @return
-	 */
+	 
 	public static int calculateHighest()
 	{
 		;
@@ -67,7 +98,7 @@ public class SalesReport
 	 * d
 	 * 
 	 * @return
-	 */
+	 
 	public static int calculateLowest()
 	{
 		;
@@ -77,7 +108,7 @@ public class SalesReport
 	 * d
 	 * 
 	 * @return
-	 */
+	 
 	public static double findAverage()
 	{
 		;
@@ -87,11 +118,11 @@ public class SalesReport
 	 * Will calculate the total of the sales and return that amount
 	 * 
 	 * @return
-	 */
+	 
 	public static double findTotal()
 	{
 		;
-	}	
+	}*/	
 }
 
 
