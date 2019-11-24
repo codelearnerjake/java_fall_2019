@@ -19,18 +19,14 @@ public class SalesReport
 		printTitle();
 		getSales(workWeek, sales);
 		
-		for (String x : workWeek) 
-		{
-			System.out.printf("%s   ", x);
-			
-			for (double y : sales)
-			{
-				System.out.printf("$%d\n", y);
-			}
+		printSales(workWeek, sales);
 		
-		}
 		
-
+		int indexHigh = calculateHighest(sales);
+		int indexLow = calculateLowest(sales);
+		System.out.printf("The highest was on %s and was $%4.2f", workWeek[indexHigh], sales[indexHigh]);
+		System.out.printf("The lowest was on %s and was $%4.2f", workWeek[indexLow], sales[indexLow]);
+		
 	}
 	
 	static Scanner userIn = new Scanner(System.in);
@@ -44,29 +40,43 @@ public class SalesReport
 	}
 	
 	/**
-	 * Check on this as best method? does I need to be there? 
+	 * do
 	 * 
 	 */
 	public static void getSales(String[] days, double[] sales)
 	{
-		for (String x: days)
+		for (int i = 0; i < days.length; i++ )
 		{
-			int i = 0; 
-			System.out.printf("Enter sales for %s:  ", x);
+			double numIn = -1;
+			do 
+			{
+				System.out.printf("Enter sales for %s:  ", days[i]);
+				
+				numIn = userIn.nextDouble();
+				
+				if(!isInvalid(numIn)) 
+				{
+					System.out.print("Cannot be negative\n");
+				}
+			} while(!isInvalid(numIn));
 			
-			sales[i] = userIn.nextDouble();
-			i++;
-			
-		}
+			sales[i] = numIn;
+		}		
 	}
 	
 	/**
 	 * 
 	 * @return
-	 
-	public static boolean isInvalid()
+	 */
+	public static boolean isInvalid(double testNum)
 	{
-		;
+		boolean validate = false;
+		if (testNum > 0 )
+		{ 
+			validate = true;
+		}
+		
+		return validate;
 	}
 	
 	/**
@@ -74,34 +84,51 @@ public class SalesReport
 	 */
 	public static void printSales(String[] weekDays, double[] sales)
 	{
-		System.out.print("Sales per day:\n\n");
+		System.out.print("\nSales per day:\n\n");
 		
-		int i = 0;
-		for (String x : weekDays)
+		for (int i = 0; i < weekDays.length; i++ )  
 		{
-			System.out.printf("%14s   $%4.2d", x, sales[i]);
-			i++;
+			System.out.printf("%-14s   ", weekDays[i]);
+			
+			System.out.printf("$%4.2f\n", sales[i]);
+		
+		}	
+	}
+	
+	/**
+	 * d
+	 * 
+	 * @return
+	 */
+	public static int calculateHighest(double[] sales)
+	{
+		int highest = 0;
+		
+		for (int i = 1; i < sales.length; i++)
+			if (sales[i] > sales[highest])
+			{ 
+				highest = i;
+			}
+		return highest; 
+	}
+	
+	/**
+	 * d
+	 * 
+	 * @return
+	 */
+	public static int calculateLowest(double[] sales)
+	{
+		{
+			int lowest = 0;
+			
+			for (int i = 1; i < sales.length; i++)
+				if (sales[i] < sales[lowest])
+				{ 
+					lowest = i;
+				}
+			return lowest; 
 		}
-	}
-	
-	/**
-	 * d
-	 * 
-	 * @return
-	 
-	public static int calculateHighest()
-	{
-		;
-	}
-	
-	/**
-	 * d
-	 * 
-	 * @return
-	 
-	public static int calculateLowest()
-	{
-		;
 	}
 	
 	/**
