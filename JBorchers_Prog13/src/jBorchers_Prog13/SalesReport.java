@@ -27,6 +27,7 @@ public class SalesReport
 		System.out.printf("The highest was on %s and was $%4.2f", workWeek[indexHigh], sales[indexHigh]);
 		System.out.printf("The lowest was on %s and was $%4.2f", workWeek[indexLow], sales[indexLow]);
 		System.out.printf("The average is  $%4.2f", findAverage(sales));
+		System.out.printf("The total is  $%4.2f", findTotal(sales));
 		
 	}
 	
@@ -154,11 +155,17 @@ public class SalesReport
 	 * Will calculate the total of the sales and return that amount
 	 * 
 	 * @return
-	 
-	public static double findTotal()
+	 */
+	public static double findTotal(double[] arrayForTotal)
 	{
-		;
-	}*/	
+		double total = 0;			
+		for (int i = 0; i < arrayForTotal.length; i++ )
+		{
+			total += arrayForTotal[i];
+			
+		}
+		return total;
+	}	
 }
 
 
