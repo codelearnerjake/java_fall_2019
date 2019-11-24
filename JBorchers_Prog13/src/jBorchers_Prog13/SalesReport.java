@@ -26,6 +26,7 @@ public class SalesReport
 		int indexLow = calculateLowest(sales);
 		System.out.printf("The highest was on %s and was $%4.2f", workWeek[indexHigh], sales[indexHigh]);
 		System.out.printf("The lowest was on %s and was $%4.2f", workWeek[indexLow], sales[indexLow]);
+		System.out.printf("The average is  $%4.2f", findAverage(sales));
 		
 	}
 	
@@ -135,10 +136,18 @@ public class SalesReport
 	 * d
 	 * 
 	 * @return
-	 
-	public static double findAverage()
+	 */
+	public static double findAverage(double arrayForAvg[])
 	{
-		;
+		double avg = 0;
+		int count = 0;			
+		for (; count < arrayForAvg.length; count++ )
+		{
+			avg += arrayForAvg[count];
+			
+		}
+		
+		return avg / count; 
 	}
 	
 	/**
