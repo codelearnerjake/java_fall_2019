@@ -1,7 +1,8 @@
 /* Jacob Borchers
  * Program 13, Due: 11/26/19
  * Partner names: None
- * Description: 
+ * Description: This program asks the user for sales values for each day of the week then outputs
+ * the highest sale and the corresponding day, lowest and corresponding day, average and total of the sales. 
  */
 
 package jBorchers_Prog13;
@@ -9,26 +10,23 @@ import java.util.Scanner;
 
 public class SalesReport
 {
-	//Do description and method javadocs
 	public static void main(String[] args)
 	{
 		String[] workWeek = {"Monday","Tuesday","Wednesday","Thursday","Friday"};
 		double[] sales = new double[5];
 		
-		
-		printTitle();
+		printTitle();	
 		getSales(workWeek, sales);
-		
 		printSales(workWeek, sales);
-		
 		
 		int indexHigh = calculateHighest(sales);
 		int indexLow = calculateLowest(sales);
-		System.out.printf("The highest was on %s and was $%4.2f", workWeek[indexHigh], sales[indexHigh]);
-		System.out.printf("The lowest was on %s and was $%4.2f", workWeek[indexLow], sales[indexLow]);
-		System.out.printf("The average is  $%4.2f", findAverage(sales));
-		System.out.printf("The total is  $%4.2f", findTotal(sales));
 		
+		System.out.printf("\nThe highest was on %s and was $%4.2f.\n", workWeek[indexHigh], sales[indexHigh]);
+		System.out.printf("The lowest was on %s and was $%4.2f.\n", workWeek[indexLow], sales[indexLow]);
+		System.out.printf("The total is  $%4.2f.\n", findTotal(sales));
+		System.out.printf("The average is  $%4.2f.", findAverage(sales));		
+		userIn.close();
 	}
 	
 	static Scanner userIn = new Scanner(System.in);
@@ -42,7 +40,11 @@ public class SalesReport
 	}
 	
 	/**
-	 * do
+	 * Accepts two arguments: a string array of days and an array of doubles and asks the user to 
+	 * enter the sales per day. 
+	 * 
+	 * @param days String array of days
+	 * @param sales Double array of sales
 	 * 
 	 */
 	public static void getSales(String[] days, double[] sales)
@@ -67,8 +69,10 @@ public class SalesReport
 	}
 	
 	/**
+	 * Takes in double as argument and validates if greater than zero
 	 * 
-	 * @return
+	 * @param testNum double to test
+	 * @return boolean if number is greater
 	 */
 	public static boolean isInvalid(double testNum)
 	{
@@ -82,7 +86,11 @@ public class SalesReport
 	}
 	
 	/**
-	 * Check loop method, might be better way
+	 * Accepts two arguments: a string array of days and an array of doubles 
+	 * and prints out the two arrays
+	 * 
+	 *  @param weekDays A string array of the days of the week
+	 *  @param sales Double array of sales to match to the days
 	 */
 	public static void printSales(String[] weekDays, double[] sales)
 	{
@@ -92,15 +100,15 @@ public class SalesReport
 		{
 			System.out.printf("%-14s   ", weekDays[i]);
 			
-			System.out.printf("$%4.2f\n", sales[i]);
-		
+			System.out.printf("$%4.2f\n", sales[i]);		
 		}	
 	}
 	
 	/**
-	 * d
+	 * Accepts a array of doubles to evaluate the highest value 
 	 * 
-	 * @return
+	 * @param sales An array of doubles
+	 * @return the index of the highest value
 	 */
 	public static int calculateHighest(double[] sales)
 	{
@@ -115,9 +123,10 @@ public class SalesReport
 	}
 	
 	/**
-	 * d
+	 * Accepts a array of doubles to evaluate the lowest value 
 	 * 
-	 * @return
+	 * @param sales An array of doubles
+	 * @return the index of the lowest value
 	 */
 	public static int calculateLowest(double[] sales)
 	{
@@ -129,40 +138,42 @@ public class SalesReport
 				{ 
 					lowest = i;
 				}
+			
 			return lowest; 
 		}
 	}
 	
 	/**
-	 * d
+	 * Accepts a array of doubles to calculate the average
 	 * 
-	 * @return
+	 * @param sales An array of doubles
+	 * @return the average of the values
 	 */
 	public static double findAverage(double arrayForAvg[])
 	{
 		double avg = 0;
-		int count = 0;			
+		int count = 0;	
+		
 		for (; count < arrayForAvg.length; count++ )
 		{
-			avg += arrayForAvg[count];
-			
+			avg += arrayForAvg[count];		
 		}
 		
 		return avg / count; 
 	}
 	
 	/**
-	 * Will calculate the total of the sales and return that amount
+	 * Accepts a array of doubles to calculate the total. 
 	 * 
-	 * @return
+	 * @param sales An array of doubles
+	 * @return the the total of the array values
 	 */
 	public static double findTotal(double[] arrayForTotal)
 	{
 		double total = 0;			
 		for (int i = 0; i < arrayForTotal.length; i++ )
 		{
-			total += arrayForTotal[i];
-			
+			total += arrayForTotal[i];		
 		}
 		return total;
 	}	
